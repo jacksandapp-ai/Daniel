@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generador de Posts para Instagram con Gemini</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+        }
+        @import url('https://rsms.me/inter/inter.css');
+
+        /* --- Estructura y Diseño Base --- */
+        .container {
+            padding: 2rem 4rem;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: #111827;
+            background-color: #f9fafb;
+            min-height: 100vh;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        .title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #111827;
+            letter-spacing: -0.025em;
+        }
+        .subtitle {
+            font-size: 1.125rem;
+            color: #6b7280;
+            margin-top: 0.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .grid-two-cols {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        .modal-body {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 2.5rem;
+            padding: 2.5rem;
+        }
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        .dashboard-actions {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .main-back-button {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .grid-new-post {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        .grid-profile-creation {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 1.5rem;
+        }
+
+        /* --- Estilos de Modales --- */
+        .modal-content {
+            background-color: white;
+            border-radius: 12px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+        }
+        .post-detail-modal { max-width: 1100px; }
+        .profile-modal, .bulk-modal { max-width: 700px; }
+        .modal-image-container { width: 100%; aspect-ratio: 1 / 1; }
+
+        /* --- Estilos Adaptables (Responsive) --- */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            .header {
+                margin-bottom: 2rem;
+            }
+            .title {
+                font-size: 1.8rem;
+            }
+            .subtitle {
+                font-size: 1rem;
+            }
+            .grid-two-cols, .modal-body {
+                grid-template-columns: 1fr;
+                gap: 1.25rem;
+            }
+            .grid-new-post, .grid-profile-creation {
+                grid-template-columns: 1fr;
+            }
+            .modal-body {
+                padding: 1.5rem;
+            }
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .dashboard-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .dashboard-actions > button {
+                width: 100%;
+            }
+            .main-back-button {
+                position: static;
+                margin-bottom: 1.5rem;
+                align-self: flex-start;
+            }
+            .header.with-back-button {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding-top: 1.5rem;
+            }
+            .profile-modal, .bulk-modal, .post-detail-modal {
+                max-width: 100%;
+                width: 95%;
+            }
+            .modal-image-container {
+                aspect-ratio: 16 / 10;
+            }
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.26.0",
+    "vite": "https://aistudiocdn.com/vite@^7.1.12",
+    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.0.4"
+  }
+}
+</script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+</body>
+</html>

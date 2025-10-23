@@ -1,0 +1,7 @@
+{
+  "name": "Generador de Posts para Instagram",
+  "description": "Una aplicación web que utiliza la API de Gemini para generar una imagen, una descripción de Instagram y hashtags relevantes a partir de un tema proporcionado por el usuario.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
